@@ -33,7 +33,6 @@
 html,
 body {
   background-color: var(--background-primary);
-  font: var(--paragraph);
 }
 
 h1 {
@@ -94,6 +93,7 @@ main form {
     padding-left: 1.125rem;
     border-radius: 0.75rem;
     border: 2px solid var(--border-primary);
+    font: var(--paragraph);
 
     &:focus {
       outline: none;
@@ -109,6 +109,12 @@ main form {
     font: var(--label);
 
     padding: 0.625rem 1.5rem;
+
+    transition: 0.5s ease;
+
+    &:hover {
+      background-color: var(--color-brand-hover);
+    }
   }
 }
 
@@ -131,6 +137,8 @@ ul {
     border-radius: 0.75rem;
     position: relative;
 
+    /* estilização de checkbox */
+
     & input[type="checkbox"] {
       all: unset;
       inset: 0;
@@ -151,15 +159,34 @@ ul {
       }
     }
 
-    & img {
-      width: 1rem;
-      height: auto;
-    }
-
     & span {
       width: 100%;
       padding-left: 24px;
     }
+
+    & img {
+      width: 1rem;
+      height: auto;
+    }
+  }
+}
+
+/* Estilos de notificação: item removido */
+
+.removed-item {
+  width: 100%;
+  margin-bottom: 170px;
+
+  display: flex;
+  gap: 0.5rem;
+
+  background-color: var(--color-danger);
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+
+  & span {
+    width: inherit;
+    color: var(--always-white);
   }
 }
 
@@ -223,5 +250,11 @@ ul {
 
       padding: 0.625rem 1.5rem;
     }
+  }
+
+  /* Estilos de notificação: item removido */
+
+  .removed-item {
+    margin-bottom: 137px;
   }
 }
