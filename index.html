@@ -15,6 +15,49 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
+    <main>
+      <header>
+        <nav><img src="/icons/logo.svg" alt="" /></nav>
+        <div>
+          <a href=""><img src="/icons/link button.svg" alt="" /></a>
+          <h1>Compras da semana</h1>
+        </div>
+      </header>
+
+      <form action="">
+        <input type="text" placeholder="Adicione um novo item" id="new-item" />
+        <button type="submit" id="add-item">Adicionar item</button>
+      </form>
+
+      <ul role="list">
+        <li id="item-1" class="items">
+          <input type="checkbox" name="checkbox-items" id="check-items" />
+          <span>Pão de forma</span>
+          <img src="/icons/trash.svg" alt="ícone de Lixeira" />
+        </li>
+        <li id="item-2" class="items">
+          <input type="checkbox" name="checkbox-items" id="check-items" />
+          <span>Café preto</span>
+          <img src="/icons/trash.svg" alt="ícone de Lixeira" />
+        </li>
+        <li id="item-3" class="items">
+          <input type="checkbox" name="checkbox-items" id="check-items" />
+          <span>Suco de laranja</span>
+          <img src="/icons/trash.svg" alt="ícone de Lixeira" />
+        </li>
+        <li id="item-4" class="items">
+          <input type="checkbox" name="checkbox-items" id="check-items" />
+          <span>Bolacha</span>
+          <img src="/icons/trash.svg" alt="ícone de Lixeira" />
+        </li>
+      </ul>
+
+      <div>
+        <img src="/icons/warning-circle-filled.svg" alt="" />
+        <span>O item foi removido da lista</span>
+        <img src="icons/delete-small.svg" alt="" />
+      </div>
+    </main>
     <script src="/script.js"></script>
   </body>
 </html>
