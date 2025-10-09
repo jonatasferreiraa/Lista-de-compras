@@ -1,10 +1,15 @@
-const newItem = document.getElementById("new-item");
-const addItem = document.getElementById("add-item");
+const addItem = document.getElementById("new-item");
+const form = document.querySelector("form");
+const newItem = document.querySelector("li");
 
 // Manipulação de input para não receber números.
 
-newItem.addEventListener("input", () => {
+addItem.addEventListener("input", () => {
   const hasNumber = /\d+/g;
 
-  newItem.value = newItem.value.replace(hasNumber, "");
+  addItem.value = addItem.value.replace(hasNumber, "");
 });
+
+form.onsubmit = (event) => {
+  event.preventDefault();
+};

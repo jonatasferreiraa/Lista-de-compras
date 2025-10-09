@@ -127,7 +127,7 @@ ul {
   display: grid;
   gap: 0.75rem;
 
-  & .items {
+  & .products {
     display: flex;
     gap: 0.75rem;
     align-items: center;
@@ -167,27 +167,62 @@ ul {
     & img {
       width: 1rem;
       height: auto;
+
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+
+      z-index: 1;
+      cursor: pointer;
+
+      margin-right: 12px;
     }
   }
 }
 
 /* Estilos de notificação: item removido */
 
-.removed-item {
+#notification {
+  display: none;
   width: 100%;
   margin-bottom: 170px;
-
-  display: flex;
-  gap: 0.5rem;
 
   background-color: var(--color-danger);
   padding: 0.75rem;
   border-radius: 0.75rem;
 
+  /* estado base para transição */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 300ms ease, transform 300ms ease;
+
   & span {
     width: inherit;
     color: var(--always-white);
   }
+
+  & img[src*="delete-small"] {
+    cursor: pointer;
+  }
+}
+
+.removed-item {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Quando a notificação estiver ativa, mostrar */
+#notification.removed-item {
+  display: flex;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* estado visível (fade-in) */
+#notification.removed-item.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Responsividade */
@@ -254,7 +289,11 @@ ul {
 
   /* Estilos de notificação: item removido */
 
-  .removed-item {
+  #notification {
     margin-bottom: 137px;
+  }
+
+  .removed-item {
+    display: flex;
   }
 }
