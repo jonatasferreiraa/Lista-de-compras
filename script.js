@@ -2,11 +2,8 @@ const addItem = document.getElementById("items");
 const form = document.querySelector("form");
 const listItems = document.querySelector("ul");
 const notification = document.querySelector("#notification");
-const contentItems = document.querySelectorAll("ul li");
 
 const closeNote = document.getElementById("close-icon");
-const ItemChecked = document.querySelectorAll("li span");
-const checkBox = document.querySelectorAll('input[type="checkbox"]');
 
 // Manipulação de input para não receber números.
 
@@ -71,4 +68,24 @@ form.onsubmit = (event) => {
 
 closeNote.addEventListener("click", () => {
   notification.remove();
+});
+
+// Marca/desmarca item e aplica estilos via delegação de eventos
+
+listItems.addEventListener("click", (event) => {
+  const checkbox = event.target.closest('input[type="checkbox"]');
+  if (!checkbox) return;
+
+  const li = checkbox.closest("li");
+  if (!li) return;
+
+  const span = li.querySelector("span");
+
+  if (checkbox.checked) {
+    li.style.backgroundColor = "#D1D5DB";
+    if (span) span.style.textDecoration = "line-through";
+  } else {
+    li.style.backgroundColor = "";
+    if (span) span.style.textDecoration = "none";
+  }
 });
