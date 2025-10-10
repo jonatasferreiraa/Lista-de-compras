@@ -1,6 +1,12 @@
 const addItem = document.getElementById("items");
 const form = document.querySelector("form");
-const items = document.querySelector("ul");
+const listItems = document.querySelector("ul");
+const notification = document.querySelector("#notification");
+const contentItems = document.querySelectorAll("ul li");
+
+const closeNote = document.getElementById("close-icon");
+const ItemChecked = document.querySelectorAll("li span");
+const checkBox = document.querySelectorAll('input[type="checkbox"]');
 
 // Manipulação de input para não receber números.
 
@@ -20,16 +26,16 @@ form.onsubmit = (event) => {
     return;
   }
 
-  //Criando elemento e aplicando na lista.
+  //Criando elemento e aplicando na lista;
 
   const newItem = document.createElement("li");
   const nameItem = document.createElement("span");
-  const checkbox = document.createElement("input");
+  const newCheckbox = document.createElement("input");
   const trashIcon = document.createElement("img");
 
-  checkbox.type = "checkbox";
-  checkbox.name = "checkbox-items";
-  checkbox.id = "check-items";
+  newCheckbox.type = "checkbox";
+  newCheckbox.name = "checkbox-items";
+  newCheckbox.id = "check-items";
 
   newItem.className = "products";
   nameItem.innerText = value;
@@ -38,8 +44,31 @@ form.onsubmit = (event) => {
   trashIcon.alt = "ícone de Lixeira";
   trashIcon.className = "trashed";
 
-  newItem.append(checkbox, nameItem, trashIcon);
-  items.prepend(newItem);
+  newItem.append(newCheckbox, nameItem, trashIcon);
+  listItems.prepend(newItem);
 
   addItem.value = "";
+  addItem.focus();
+
+  // Evento de click pra excluir item criado;
+
+  trashIcon.addEventListener("click", () => {
+    newItem.remove();
+
+    // Adicionando notificação em tela;
+
+    notification.classList.add("visible-note");
+
+    // Definindo tempo limite pra a notificação;
+
+    setTimeout(() => {
+      notification.classList.remove("visible-note");
+    }, 2000);
+  });
 };
+
+//Removendo notificação ao clicar no "x";
+
+closeNote.addEventListener("click", () => {
+  notification.remove();
+});

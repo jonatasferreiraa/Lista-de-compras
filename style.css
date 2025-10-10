@@ -192,11 +192,6 @@ ul {
   padding: 0.75rem;
   border-radius: 0.75rem;
 
-  /* estado base para transição */
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 300ms ease, transform 300ms ease;
-
   & span {
     width: inherit;
     color: var(--always-white);
@@ -205,24 +200,11 @@ ul {
   & img[src*="delete-small"] {
     cursor: pointer;
   }
-}
 
-.removed-item {
-  display: flex;
-  gap: 0.5rem;
-}
-
-/* Quando a notificação estiver ativa, mostrar */
-#notification.removed-item {
-  display: flex;
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-/* estado visível (fade-in) */
-#notification.removed-item.show {
-  opacity: 1;
-  transform: translateY(0);
+  &.visible-note {
+    display: flex;
+    gap: 0.5rem;
+  }
 }
 
 /* Responsividade */
@@ -269,7 +251,7 @@ ul {
         border: 2px solid var(--border-hover);
       }
 
-      & input:focus {
+      &:focus {
         outline: none;
         border: 2px solid var(--color-brand);
       }
@@ -291,9 +273,10 @@ ul {
 
   #notification {
     margin-bottom: 137px;
-  }
 
-  .removed-item {
-    display: flex;
+    &.visible-note {
+      display: flex;
+      gap: 0.5rem;
+    }
   }
 }
