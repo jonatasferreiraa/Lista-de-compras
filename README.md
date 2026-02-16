@@ -11,8 +11,6 @@ Navegação:
 <a href="#licença">Licença</a>
 </p>
 
-<img width="1020" height="553" alt="1758211504214" src="[https://github.com/user-attachments/assets/57dc7fbf-ff39-4587-aadb-cc17eff4c7c4]" />
-
 
 ## Sobre
 
